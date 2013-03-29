@@ -59,12 +59,16 @@ while True:
 	 		slept = playbackDuration - slept
 			while channelA.get_busy():
 				if (slept < playbackDuration):
+					print "slept < 20 = " + str(slept)
 					sleep(1)
 					slept += 1
 				else:
 					channelA.pause()
+					print "slept > 20 = " + str(slept)
 					slept = 0
+					print "slept reset = " + str(slept)
 					sensorInput.flushInput()
+					print "== sensorInput buffer flushed =="
 					while (readSensor(sensorInput.readline()) < playThreshold):
 						pass
 					channelA.unpause()
