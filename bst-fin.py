@@ -58,7 +58,7 @@ while True:
 			channelA.play(climax)
 	 		slept = playbackDuration - slept
 			while channelA.get_busy():
-				if (slept < playbackDuration):
+				if (slept <= playbackDuration):
 					print "slept < 20 = " + str(slept)
 					sleep(1)
 					slept += 1
