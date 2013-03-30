@@ -40,7 +40,7 @@ sensorInput.flushInput()
 while True:
 	if (readSensor(sensorInput.readline()) > playThreshold):
 		print "Top if readSensor True!"
-		#sensorInput.flushInput()
+		sensorInput.flushInput()
 		slept = 0
 	 	for audioFile in tracks:
 			climax = pygame.mixer.Sound(audioFile)
