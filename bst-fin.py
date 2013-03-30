@@ -45,7 +45,7 @@ while True:
 			climax = pygame.mixer.Sound(audioFile)
 			channelA.play(climax)
 	 		#slept = playbackDuration - slept
-			while channelA.get_busy():
+			while (channelA.get_busy() > 0):
 				print "slept after get_busy() = " + str(slept)
 				sensorInput.flushInput()
 				if (slept < playbackDuration):
