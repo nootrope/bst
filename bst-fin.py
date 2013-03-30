@@ -12,7 +12,7 @@ port = sys.argv[1]
 baseDir = '/home/alberto/cornelius/audio/'
 tracks = ['20121209-205217-edited.wav', '20121210-103310-edited.wav', '20121216-142614-edited.wav', '20121219-145044-edited.wav', '20121220-150925-edited.wav']
 # gong = baseDir + 'gong.wav'	# utility notification
-playThreshold = 3	# visitor goes in dress
+playThreshold = 1	# visitor goes in dress
 playbackDuration = 20	# in seconds
 
 try:
