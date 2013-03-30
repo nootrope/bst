@@ -32,7 +32,7 @@ def readSensor(s):
 			print "==> " + str(inputAsInteger)
 			return inputAsInteger
 	except ValueError:
-		print "ValueError! inputAsInteger = " + str(inputAsInteger)
+		print "ValueError! inputAsInteger = " + str(s)
 		pass
 
 sensorInput = serial.Serial(port, 9600)	# from Arduino
