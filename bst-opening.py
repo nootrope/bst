@@ -53,24 +53,25 @@ except Exception, e:
 
 while True:
 	if (readSensor(sensorInput.readline()) > playThreshold):
-		slept = 0
+		#slept = 0
 	 	for audioFile in tracks:
 			climax = pygame.mixer.Sound(audioFile)
 			channelA.play(climax)
+			sleep(playbackDuration)
 	 		#slept = playbackDuration - slept
-			while channelA.get_busy():
-				if (slept < playbackDuration):
-					#print "slept < 20 = " + str(slept)
-					sleep(1)
-					slept += 1
-					#print "slept = " + str(slept)
-				else:
-					channelA.pause()
-					#print "slept > 20 = " + str(slept)
-					slept = 0
-					#print "slept reset = " + str(slept)
-					sensorInput.flushInput()
-					#print "== sensorInput buffer flushed =="
-					while (readSensor(sensorInput.readline()) < playThreshold):
-						pass
-					channelA.unpause()
+			# while channelA.get_busy():
+			# 	if (slept < playbackDuration):
+			# 		#print "slept < 20 = " + str(slept)
+			# 		sleep(1)
+			# 		slept += 1
+			# 		#print "slept = " + str(slept)
+			# 	else:
+			# 		channelA.pause()
+			# 		#print "slept > 20 = " + str(slept)
+			# 		slept = 0
+			# 		#print "slept reset = " + str(slept)
+			# 		sensorInput.flushInput()
+			# 		#print "== sensorInput buffer flushed =="
+			# 		while (readSensor(sensorInput.readline()) < playThreshold):
+			# 			pass
+			# 		channelA.unpause()
