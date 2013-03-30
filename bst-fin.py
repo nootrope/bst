@@ -64,8 +64,8 @@ while True:
 					sensorInput.flushInput()
 					print "inWaiting() = " + str(sensorInput.inWaiting()) + " after sensorInput buffer flushed."
 					print "About to re-init Serial object..."
-					sensorInput = serial.Serial(port, 9600)	# from Arduino
-					print "re-created serial object"
+					#sensorInput = serial.Serial(port, 9600)	# from Arduino
+					print "Did not re-create serial object"
 					sensorInput.flushInput()
 					print "flushed serial buffer"
 
