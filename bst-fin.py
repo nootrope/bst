@@ -63,9 +63,11 @@ while True:
 					print "slept reset, inWaiting to be flushed= " + str(slept) + ", " + str(sensorInput.inWaiting())
 					sensorInput.flushInput()
 					print "inWaiting() = " + str(sensorInput.inWaiting()) + " after sensorInput buffer flushed."
-					print "About to initSerial..."
+					print "About to re-init Serial object..."
 					sensorInput = serial.Serial(port, 9600)	# from Arduino
+					print "re-created serial object"
 					sensorInput.flushInput()
+					print "flushed serial buffer"
 
 					try:
 						print "===> " + str((readSensor(sensorInput.readline())))
