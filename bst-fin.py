@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-import serial, sys, subprocess, pygame.mixer
+import serial, sys, pygame.mixer
 from time import sleep
 
 # Usage example: python bst.py /dev/ttyUSB0
@@ -14,7 +14,12 @@ tracks = ['20121209-205217-edited.wav', '20121210-103310-edited.wav', '20121216-
 # gong = baseDir + 'gong.wav'	# utility notification
 playThreshold = 10	# visitor goes in dress
 playbackDuration = 20	# in seconds
-slept = 0
+
+try:
+	pygame.mixer.init(48000, -16, 1, 1024)
+	channelA = pygame.mixer.Channel(1)
+except Exception, e:
+	raise e
 
 def readSensor(s):
 	try:
@@ -32,32 +37,15 @@ def readSensor(s):
 sensorInput = serial.Serial(port, 9600)	# from Arduino
 sensorInput.flushInput()
 
-# def playtrack(track):
-# 	slept = 0
-# 	climax = pygame.mixer.Sound(track)
-# 	channelA.play(climax)
-# 	while channelA.get_busy():
-# 		if (slept < playbackDuration):
-# 			sleep(1)
-# 			slept += 1
-# 			if (slept > playbackDuration):
-# 				channelA.pause()
-# 				return playbackDuration
-# 	return slept
-
-try:
-	pygame.mixer.init(48000, -16, 1, 1024)
-	channelA = pygame.mixer.Channel(1)
-except Exception, e:
-	raise e
-
 while True:
 	if (readSensor(sensorInput.readline()) > playThreshold):
+		slept = 0
 	 	for audioFile in tracks:
 			climax = pygame.mixer.Sound(audioFile)
 			channelA.play(climax)
 	 		slept = playbackDuration - slept
 			while channelA.get_busy():
+				print "slept after get_busy() = " + str(slept)
 				if (slept < playbackDuration):
 					print "slept < 20 = " + str(slept)
 					sleep(1)
