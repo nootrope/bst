@@ -64,7 +64,12 @@ while True:
 					sensorInput.flushInput()
 					print "inWaiting() = " + str(sensorInput.inWaiting()) + " after sensorInput buffer flushed."
 					print "About to readSensor..."
-					print "===> " + str((readSensor(sensorInput.readline())))
+					try:
+						print "===> " + str((readSensor(sensorInput.readline())))
+					except Exception, se:
+						print "SerialException"
+						raise se
+
 					#print "readSensor = " + str(readSensor(sensorInput.readline())) + ". Stepping into while readSensor test."
 					
 					while (readSensor(sensorInput.readline()) < playThreshold):
