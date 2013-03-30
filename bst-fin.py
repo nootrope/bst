@@ -79,4 +79,4 @@ while True:
 						print "-"
 					print "+"
 					channelA.unpause()
-			channelA.fadeout(20)
+		channelA.fadeout(20)
