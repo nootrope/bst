@@ -40,32 +40,30 @@ sensorInput.flushInput()
 
 while True:
 	if (readSensor(sensorInput.readline()) > playThreshold):
-		print "Top if readSensor True!"
+		print "Top if readSensor True! Should replay all tracks"
 		sensorInput.flushInput()
 		slept = 0
 	 	for audioFile in tracks:
 			climax = pygame.mixer.Sound(baseDir + audioFile)
 			channelA.play(climax)
 	 		print "Playing sample " + audioFile
-	 		#slept = playbackDuration - slept
-	 		#sensorInput.flushInput()
 			while (channelA.get_busy() > 0):
-				print "inWaiting(), slept, channelA.get_busy() = " + str(sensorInput.inWaiting()) + ", " + str(slept) + ", " + str(channelA.get_busy())
+				#print "inWaiting(), slept, channelA.get_busy() = " + str(sensorInput.inWaiting()) + ", " + str(slept) + ", " + str(channelA.get_busy())
 				if (slept < playbackDuration):
 					#print "slept < 20 = " + str(slept)
 					sleep(1)
 					slept += 1
-					print "slept = " + str(slept)
+					#print "slept = " + str(slept)
 				else:
 					channelA.pause()
-					print "slept == 20 = " + str(slept)
+					#print "slept == 20 = " + str(slept)
 					slept = 0
-					print "slept reset, inWaiting to be flushed= " + str(slept) + ", " + str(sensorInput.inWaiting())
+					#print "slept reset, inWaiting to be flushed= " + str(slept) + ", " + str(sensorInput.inWaiting())
 					sensorInput.flushInput()
-					print "inWaiting() = " + str(sensorInput.inWaiting()) + " after sensorInput buffer flushed."
-					print "About to re-init Serial object..."
+					#print "inWaiting() = " + str(sensorInput.inWaiting()) + " after sensorInput buffer flushed."
+					#print "About to re-init Serial object..."
 					#sensorInput = serial.Serial(port, 9600)	# from Arduino
-					print "Did not re-create serial object"
+					#print "Did not re-create serial object"
 					sensorInput.flushInput()
 					print "flushed serial buffer"
 
@@ -79,6 +77,6 @@ while True:
 					
 					while (readSensor(sensorInput.readline()) < playThreshold):
 						print "-"
-						#pass
 					print "+"
 					channelA.unpause()
+			channelA.fadeout(20)
