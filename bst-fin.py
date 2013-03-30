@@ -29,7 +29,7 @@ def readSensor(s):
 			pass
 		else:
 			# ***** DEBUG feedback:
-			print inputAsInteger
+			print "==> " + str(inputAsInteger)
 			return inputAsInteger
 	except ValueError:
 		pass
