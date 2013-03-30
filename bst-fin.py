@@ -61,7 +61,7 @@ while True:
 					slept = 0
 					print "slept reset, inWaiting to be flushed= " + str(slept) + ", " + str(sensorInput.inWaiting())
 					sensorInput.flushInput()
-					print "inWaiting(), " + str(sensorInput.inWaiting()) "after sensorInput buffer flushed."
+					print "inWaiting(), " + str(sensorInput.inWaiting()) + "after sensorInput buffer flushed."
 					print "readSensor = " + str(readSensor(sensorInput.readline())) + ". Stepping into while readSensor test."
 					while (readSensor(sensorInput.readline()) < playThreshold):
 						print "-"
