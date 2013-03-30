@@ -35,13 +35,10 @@ def readSensor(s):
 		print "ValueError! inputAsInteger = " + str(s)
 		pass
 
-def initSerial():
-	sensorInput = serial.Serial(port, 9600)	# from Arduino
-	sensorInput.flushInput()
-	return
+sensorInput = serial.Serial(port, 9600)	# from Arduino
+sensorInput.flushInput()
 
 while True:
-	initSerial()
 	if (readSensor(sensorInput.readline()) > playThreshold):
 		print "Top if readSensor True!"
 		sensorInput.flushInput()
@@ -67,6 +64,9 @@ while True:
 					sensorInput.flushInput()
 					print "inWaiting() = " + str(sensorInput.inWaiting()) + " after sensorInput buffer flushed."
 					print "About to initSerial..."
+					sensorInput = serial.Serial(port, 9600)	# from Arduino
+					sensorInput.flushInput()
+
 					try:
 						print "===> " + str((readSensor(sensorInput.readline())))
 					except Exception, se:
