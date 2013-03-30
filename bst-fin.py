@@ -43,8 +43,9 @@ while True:
 		sensorInput.flushInput()
 		slept = 0
 	 	for audioFile in tracks:
-			climax = pygame.mixer.Sound(audioFile)
+			climax = pygame.mixer.Sound(baseDir + audioFile)
 			channelA.play(climax)
+	 		print "Playing sample " + audioFile
 	 		#slept = playbackDuration - slept
 	 		#sensorInput.flushInput()
 			while (channelA.get_busy() > 0):
