@@ -29,10 +29,10 @@ def readSensor(s):
 			pass
 		else:
 			# ***** DEBUG feedback:
-			print "==> " + str(inputAsInteger)
+			print "--> " + str(inputAsInteger)
 			return inputAsInteger
 	except ValueError:
-		print "ValueError! inputAsInteger = " + str(s)
+		#print "ValueError! inputAsInteger = " + str(s)
 		pass
 
 sensorInput = serial.Serial(port, 9600)	# from Arduino
@@ -59,19 +59,18 @@ while True:
 					#print "slept == 20 = " + str(slept)
 					slept = 0
 					#print "slept reset, inWaiting to be flushed= " + str(slept) + ", " + str(sensorInput.inWaiting())
-					sensorInput.flushInput()
+					#sensorInput.flushInput()
 					#print "inWaiting() = " + str(sensorInput.inWaiting()) + " after sensorInput buffer flushed."
 					#print "About to re-init Serial object..."
-					#sensorInput = serial.Serial(port, 9600)	# from Arduino
 					#print "Did not re-create serial object"
 					sensorInput.flushInput()
 					print "flushed serial buffer"
 
-					try:
-						print "===> " + str((readSensor(sensorInput.readline())))
-					except Exception, se:
-						print "SerialException"
-						raise se
+					# try:
+					# 	print "===> " + str((readSensor(sensorInput.readline())))
+					# except Exception, se:
+					# 	print "SerialException"
+					# 	raise se
 
 					#print "readSensor = " + str(readSensor(sensorInput.readline())) + ". Stepping into while readSensor test."
 					
@@ -79,4 +78,3 @@ while True:
 						print "-"
 					print "+"
 					channelA.unpause()
-		channelA.fadeout(20)
