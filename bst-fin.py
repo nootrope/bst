@@ -48,7 +48,7 @@ while True:
 	 		#slept = playbackDuration - slept
 	 		#sensorInput.flushInput()
 			while (channelA.get_busy() > 0):
-				print "slept, channelA.get_busy() = " + str(slept) + ", " + str(channelA.get_busy())
+				print "inWaiting(), slept, channelA.get_busy() = " + sensorInput.inWaiting() + ", " + str(slept) + ", " + str(channelA.get_busy())
 				if (slept < playbackDuration):
 					#print "slept < 20 = " + str(slept)
 					sleep(1)
