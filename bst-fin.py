@@ -39,7 +39,7 @@ sensorInput.flushInput()
 
 while True:
 	if (readSensor(sensorInput.readline()) > playThreshold):
-		slept = 0
+		slept = 1
 	 	for audioFile in tracks:
 			climax = pygame.mixer.Sound(audioFile)
 			channelA.play(climax)
@@ -54,7 +54,7 @@ while True:
 				else:
 					channelA.pause()
 					print "slept > 20 = " + str(slept)
-					slept = 0
+					slept = 1
 					print "slept reset = " + str(slept)
 					sensorInput.flushInput()
 					print "== sensorInput buffer flushed =="
