@@ -62,6 +62,9 @@ while True:
 					print "slept reset = " + str(slept)
 					sensorInput.flushInput()
 					print "== sensorInput buffer flushed =="
+					print "readSensor = " + str(readSensor(sensorInput.readline()))
 					while (readSensor(sensorInput.readline()) < playThreshold):
-						pass
+						print "-"
+						#pass
+					print "+"
 					channelA.unpause()
