@@ -9,10 +9,7 @@ A python script, ~/bst-fin.py provides the interactivity and plays the installat
 
 _Requires [pygame](http://www.pygame.org/news.html) and [pySerial](http://pyserial.sourceforge.net/pyserial.html)_
 
-#### The Arduino code uses smoothing code from: http://www.arduino.cc/en/Tutorial/Smoothing
-#### created 22 April 2007 By David A. Mellis <dam@mellis.org>, modified 9 Apr 2012 by Tom Igoe
-#### and 
-#### calibration code from http://arduino.cc/en/Tutorial/Calibration
-#### created 29 Oct 2008 By David A Mellis, modified 30 Aug 2011 by Tom Igoe
+#### The Arduino code uses [smoothing code](http://www.arduino.cc/en/Tutorial/Smoothing) created 22 April 2007 By David A. Mellis <dam@mellis.org>and modified 9 Apr 2012 by Tom Igoe
+#### and [calibration code](http://arduino.cc/en/Tutorial/Calibration) created 29 Oct 2008 By David A Mellis and modified 30 Aug 2011 by Tom Igoe
 #### Both modified 20 March 2013 by Alberto Gaitán
 
