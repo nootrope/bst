@@ -1,9 +1,9 @@
 # bst
 ## Code for Kathryn Cornelius's installation: Blood, Sweat, and Tears
-## Curator's Office, 1515 14th St, NW, Washington, DC
-## March 30, 2013 - May 10, 2013
+### Curator's Office, 1515 14th St, NW, Washington, DC
+#### March 30, 2013 - May 10, 2013
 
-An Arduino continuously sends the smoothed analog value of a vibation sensor attached to the hanging system for the dress that is the centerpiece of the exhibition. The analog signal is sent via Serial.println() to a Raspberry Pi (B)running Raspbian Linux version 3.6.11+ (dc4@dc4-arm-01) (gcc version 4.7.2 20120731 (prerelease) (crosstool-NG linaro-1.13.1+bzr2458 - Linaro GCC 2012.08)) and Python 2.7
+An Arduino continuously sends the smoothed analog value of a vibation sensor attached to the hanging system for the dress that is the centerpiece of the exhibition. The analog signal is sent via Serial.println() to a Raspberry Pi (B) running Raspbian Linux version 3.6.11+ (dc4@dc4-arm-01) (gcc version 4.7.2 20120731 (prerelease) (crosstool-NG linaro-1.13.1+bzr2458 - Linaro GCC 2012.08)) and Python 2.7
 
 A python script, ~/bst-fin.py provides the interactivity and plays the installation's audio.
 
