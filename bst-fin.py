@@ -5,7 +5,7 @@ from time import sleep
 
 # Usage example: python bst.py /dev/ttyUSB0
 if (len(sys.argv) != 2):
-	print("Usage: python bst.py [tty-port]")
+	print("Usage: python bst-fin.py [tty-port]")
 	sys.exit()
 port = sys.argv[1]
 
