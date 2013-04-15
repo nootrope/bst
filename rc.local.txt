@@ -21,9 +21,9 @@ fi
 # ==== For Blood, Sweat, and Tears by Kathryn Cornelius ====
 # ==== Opening March 30 2013, Curator's Office, Washington DC ====
 #
-# This file should be moved/renamed to /etc/rc.local
+# This file should be moved/renamed to /etc/rc.local or the command below should be appended to the existing one
 # USAGE: su -c 'usr/bin/env python /home/USER/PATH/TO/bst.py' -u USER &
-# Where USER is the name of the home dir of the owner of bst.py
-su -c '/usr/bin/env python /home/USER/path/to/bst.py' -u USER &
+# Where USER is the name of the home dir of the user who bst.py should run as. All paths should be absolute.
+#su -c '/usr/bin/env python /home/USER/path/to/bst.py' -u USER &
 
 exit 0
